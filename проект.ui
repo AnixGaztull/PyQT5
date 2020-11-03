@@ -6,15 +6,9 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>731</width>
-    <height>586</height>
+    <width>735</width>
+    <height>599</height>
    </rect>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>731</width>
-    <height>586</height>
-   </size>
   </property>
   <property name="mouseTracking">
    <bool>false</bool>
@@ -26,6 +20,9 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
@@ -40,14 +37,21 @@
     </property>
     <layout class="QVBoxLayout" name="main_layot">
      <item>
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="Line" name="line_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="input_name">
        <property name="mouseTracking">
         <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_6">
+      <widget class="QLabel" name="max_points">
        <property name="text">
         <string>#наибольшее число очков</string>
        </property>
@@ -77,7 +81,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLCDNumber" name="lcdNumber_2"/>
+        <widget class="QLCDNumber" name="hits"/>
        </item>
       </layout>
      </item>
@@ -91,12 +95,12 @@
         </widget>
        </item>
        <item>
-        <widget class="QLCDNumber" name="lcdNumber_3"/>
+        <widget class="QLCDNumber" name="misses"/>
        </item>
       </layout>
      </item>
      <item>
-      <widget class="QLCDNumber" name="lcdNumber"/>
+      <widget class="QLCDNumber" name="rezult"/>
      </item>
      <item>
       <widget class="Line" name="line_2">
@@ -119,53 +123,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QTableWidget" name="tableWidget">
-       <property name="columnCount">
-        <number>3</number>
-       </property>
-       <attribute name="horizontalHeaderDefaultSectionSize">
-        <number>89</number>
-       </attribute>
-       <attribute name="horizontalHeaderHighlightSections">
-        <bool>false</bool>
-       </attribute>
-       <attribute name="verticalHeaderHighlightSections">
-        <bool>true</bool>
-       </attribute>
-       <column>
-        <property name="text">
-         <string>номер</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Пользователь</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Рейтинг</string>
-        </property>
-       </column>
-      </widget>
+      <widget class="QListWidget" name="listWidget"/>
      </item>
     </layout>
-   </widget>
-   <widget class="QListWidget" name="trainer">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>441</width>
-      <height>541</height>
-     </rect>
-    </property>
-    <property name="cursor" stdset="0">
-     <cursorShape>CrossCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 0, 0);</string>
-    </property>
    </widget>
    <widget class="Line" name="line">
     <property name="geometry">
@@ -180,74 +140,33 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QCommandLinkButton" name="commandLinkButton">
+   <widget class="QPushButton" name="f_btn">
     <property name="geometry">
      <rect>
-      <x>-200</x>
-      <y>310</y>
-      <width>185</width>
-      <height>41</height>
+      <x>-20</x>
+      <y>30</y>
+      <width>461</width>
+      <height>551</height>
      </rect>
-    </property>
-    <property name="text">
-     <string>CommandLinkButton</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_10">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>300</y>
-      <width>30</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>CrossCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius : 15px; background: rgb(255, 30, 0); border: 2px solid rgb(255, 0, 0);</string>
+     <string notr="true">background: rgb(255, 255, 255)</string>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_12">
+   <widget class="QLabel" name="timeForPlayer">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>340</y>
-      <width>30</width>
-      <height>30</height>
+      <x>360</x>
+      <y>0</y>
+      <width>81</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="cursor">
-     <cursorShape>CrossCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-radius : 15px; background: rgb(255, 30, 0); border: 2px solid rgb(255, 0, 0);</string>
-    </property>
     <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_13">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>380</y>
-      <width>30</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>CrossCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-radius : 15px; background: rgb(255, 30, 0); border: 2px solid rgb(255, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string/>
+     <string>00:00:00</string>
     </property>
    </widget>
   </widget>
@@ -256,16 +175,10 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>731</width>
+     <width>735</width>
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menu">
-    <property name="title">
-     <string>Проект</string>
-    </property>
-   </widget>
-   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
