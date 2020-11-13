@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>734</width>
-    <height>599</height>
+    <height>596</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -72,7 +72,7 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>20</y>
+      <y>10</y>
       <width>271</width>
       <height>23</height>
      </rect>
@@ -85,7 +85,7 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>60</y>
+      <y>35</y>
       <width>271</width>
       <height>23</height>
      </rect>
@@ -106,114 +106,6 @@
     <property name="text">
      <string>#наибольшее число очков</string>
     </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>131</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QGroupBox" name="enter_window">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>30</y>
-      <width>201</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Вход</string>
-    </property>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>47</width>
-       <height>13</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>имя</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="name_input">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>47</width>
-       <height>13</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>пароль</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="password">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>80</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="error_w">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>100</y>
-       <width>141</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="enter_btn">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>120</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>вход</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="cancel_btn_enter">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>120</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>отмена</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
@@ -350,117 +242,35 @@
      </rect>
     </property>
    </widget>
-   <widget class="QGroupBox" name="registration_window">
+   <widget class="QPushButton" name="exit_btn">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>190</y>
-      <width>201</width>
-      <height>171</height>
+      <x>660</x>
+      <y>10</y>
+      <width>71</width>
+      <height>21</height>
      </rect>
     </property>
-    <property name="title">
-     <string>Регистрация</string>
+    <property name="text">
+     <string>выход</string>
     </property>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>181</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>придумайте имя</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="name_input_reg">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_8">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>80</y>
-       <width>111</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>придумайте пароль</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="input_password_reg">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>95</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="registr_btn">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>140</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>регистрация</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="cancel_btn_enter_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>140</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>отмена</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="error_w_password">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>120</y>
-       <width>181</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="window_name">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>171</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
    </widget>
+   <widget class="QPushButton" name="stop_btn">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>60</y>
+      <width>271</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Остановить</string>
+    </property>
+   </widget>
+   <zorder>start_btn</zorder>
+   <zorder>stop_btn</zorder>
+   <zorder>exit_btn</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>line_2</zorder>
    <zorder>rezult</zorder>
@@ -473,12 +283,8 @@
    <zorder>line</zorder>
    <zorder>timeForPlayer</zorder>
    <zorder>f_btn</zorder>
-   <zorder>start_btn</zorder>
    <zorder>entrence</zorder>
    <zorder>registration</zorder>
-   <zorder>comboBox</zorder>
-   <zorder>enter_window</zorder>
-   <zorder>registration_window</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
