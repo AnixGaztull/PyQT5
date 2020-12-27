@@ -302,8 +302,8 @@
    <widget class="QComboBox" name="select_mode">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>5</y>
+      <x>50</x>
+      <y>10</y>
       <width>75</width>
       <height>20</height>
      </rect>
@@ -387,6 +387,19 @@
      <string>аркада</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>41</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Режим:</string>
+    </property>
+   </widget>
    <zorder>tableLiders_am</zorder>
    <zorder>btn_miss</zorder>
    <zorder>start_btn</zorder>
@@ -412,6 +425,7 @@
    <zorder>tableLiders_sm</zorder>
    <zorder>select_sm_table</zorder>
    <zorder>select_am_table</zorder>
+   <zorder>label_6</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

@@ -29,14 +29,34 @@
   <widget class="QPushButton" name="eye_show">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>169</x>
      <y>90</y>
      <width>21</width>
-     <height>23</height>
+     <height>20</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);
+</string>
+   </property>
    <property name="text">
-    <string>-</string>
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>show.png</normaloff>show.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+   <property name="autoRepeat">
+    <bool>false</bool>
+   </property>
+   <property name="autoExclusive">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -49,7 +69,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>пароль</string>
+    <string>Пароль</string>
    </property>
   </widget>
   <widget class="QPushButton" name="enter_btn">
@@ -103,12 +123,12 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>47</width>
-     <height>13</height>
+     <width>71</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>имя</string>
+    <string>Введите имя:</string>
    </property>
   </widget>
   <widget class="QPushButton" name="is_ok">
@@ -134,21 +154,26 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:1, fx:0.5, fy:0.5, stop:0 rgba(20, 20, 20,255), stop:0.19397 rgba(0, 0, 0, 255), stop:0.202312 rgba(128, 128, 128, 128), stop:0.495514 rgba(76, 58, 0, 255), stop:0.504819 rgb(255, 255, 255), stop:0.79 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
-border: 0px;
-border-radius: 4px</string>
+    <string notr="true">background-color: rgb(255, 255, 255);
+</string>
    </property>
    <property name="text">
-    <string>-</string>
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>hide.png</normaloff>hide.png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>10</width>
-     <height>10</height>
+     <width>16</width>
+     <height>16</height>
     </size>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="show.qrc"/>
+ </resources>
  <connections/>
 </ui>

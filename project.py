@@ -8,11 +8,9 @@ class Entrence_class(QWidget):
     def __init__(self):
         super().__init__()
         uic.loadUi('enter.ui', self)
-
         self.setWindowTitle("Вход")
         self.is_ok.hide()
         self.hide_password()
-
         self.cancel_btn.clicked.connect(self.cancel_enter)
         self.enter_btn.clicked.connect(self.check_name)
         self.eye_show.clicked.connect(self.show_password)
@@ -63,10 +61,8 @@ class Registration_class(QWidget):
         self.hide_password_2()
         self.reg_is = False
         self.is_ok.hide()
-
         self.registr_btn.clicked.connect(self.registration)
         self.cancel_btn.clicked.connect(self.cancel_registr)
-
         self.eye_s1.clicked.connect(self.show_password_1)
         self.eye_s2.clicked.connect(self.show_password_2)
         self.eye_h1.clicked.connect(self.hide_password_1)
@@ -141,26 +137,21 @@ class MyWidget(QMainWindow):
         global cur, con
         self.cur = cur
         self.con = con
-
         self.exit_btn.hide()
         self.stop_btn.hide()
         self.select_sm_table.hide()
         self.select_am_table.hide()
-
         self.standart_mode = True
         self.standart_mode_table = True
         self.log_in = False
         self.game_now = False
-
         self.player_name = None
         self.player_id = None
         self.score_player = None
-
         self.entrence.clicked.connect(self.enter_in_acc)
         self.registration.clicked.connect(self.regist_new_acc)
         self.create_table_liders()
         self.create_combobox()
-
         self.btn_miss.clicked.connect(self.function_misses)
         self.start_btn.clicked.connect(self.start_game)
 
@@ -179,7 +170,6 @@ class MyWidget(QMainWindow):
 
     def log_in_true(self):
         self.log_in = True
-
         self.window.hide()
         self.entrence.hide()
         self.registration.hide()
@@ -187,14 +177,12 @@ class MyWidget(QMainWindow):
         self.name.show()
         self.max_points_sm.show()
         self.max_points_am.show()
-
         self.score_player_sm, self.score_player_am = self.cur.execute(f"""SELECT standart_score, arcada_score 
                                                 FROM players_score
                                                 WHERE name='{self.player_name}'""").fetchall()[0]
         self.max_points_sm.setText(f'стандарт - {self.score_player_sm}')
         self.max_points_am.setText(f'аркада - {self.score_player_am}')
         self.name.setText(f'Имя игрока - {self.player_name}')
-
         self.load_liders_inf(True)
         self.load_liders_inf(False)
         self.exit_btn.clicked.connect(self.exit)
@@ -212,10 +200,8 @@ class MyWidget(QMainWindow):
         self.name.hide()
         self.max_points_am.hide()
         self.max_points_sm.hide()
-
         self.entrence.show()
         self.registration.show()
-
         if self.game_now:
             self.delete_game()
         self.player_name = None
@@ -273,12 +259,10 @@ class MyWidget(QMainWindow):
             self.button.hide()
             self.buttons.addButton(self.button)
             self.buttons.setId(self.button, i)
-
         if self.log_in:
             self.entrence.hide()
             self.registration.hide()
         self.stop_btn.show()
-
         self.game_now = True
         self.dif_time_1 = 0
         self.restart_count()
@@ -289,7 +273,6 @@ class MyWidget(QMainWindow):
             self.button_game.show()
             self.coord_button_am()
             self.button_game.clicked.connect(self.function_btn_am)
-
         self.make_timer()
         self.start_btn.hide()
         self.stop_btn.clicked.connect(self.delete_game)
@@ -320,9 +303,9 @@ class MyWidget(QMainWindow):
     def timerEvent(self):
         self.time = self.time.addSecs(1)
         self.timeForPlayer.setText(self.time.toString("hh:mm:ss"))
-        #if self.game_now and  not self.standart_mode:
-            #if int(self.time.toString('ss')) > 2:
-                #self.game_over()
+        if self.game_now and not self.standart_mode:
+            if int(self.time.toString('ss')) > 2:
+                self.game_over()
 
     def function_btn_sm(self, this_button):
         if self.game_now:
@@ -341,6 +324,9 @@ class MyWidget(QMainWindow):
                 self.finish_game()
 
     def function_btn_am(self):
+        self.timer.stop()
+        self.timeForPlayer.setText('00:00:00')
+        self.make_timer()
         self.count_hits += 1
         self.coord_button_am()
         self.hits.display(self.count_hits)
@@ -359,19 +345,15 @@ class MyWidget(QMainWindow):
         model = self.select_mode.model()
         model.item(0).setEnabled(True)
         model.item(1).setEnabled(True)
-
         self.timeForPlayer.setText('00:00:00')
         self.timer.stop()
         self.time = QtCore.QTime(0, 0, 0)
-
         for i in range(self.num_btns):
             self.buttons.button(i).hide()
-
         if self.standart_mode:
             self.load_liders_inf(True)
         else:
             self.load_liders_inf(False)
-
         self.restart_count()
         self.start_btn.show()
         self.stop_btn.hide()
@@ -411,17 +393,13 @@ class MyWidget(QMainWindow):
         self.tableLiders_sm.setColumnCount(2)
         self.tableLiders_sm.setColumnWidth(0, 115)
         self.tableLiders_sm.setColumnWidth(1, 115)
-
         self.tableLiders_am.setColumnCount(2)
         self.tableLiders_am.setColumnWidth(0, 115)
         self.tableLiders_am.setColumnWidth(1, 115)
-
         self.tableLiders_sm.setHorizontalHeaderLabels(["Имя", "Счет"])
         self.tableLiders_am.setHorizontalHeaderLabels(["Имя", "Счет"])
-
         self.load_liders_inf(True)
         self.load_liders_inf(False)
-
         self.select_sm_table.show()
         self.select_am_table.show()
         self.select_sm_table.setEnabled(False)
@@ -432,11 +410,10 @@ class MyWidget(QMainWindow):
         self.scroll_btn.hide()
         if standart:
             self.liders_inf = list(map(lambda x: (x[0], x[1]),
-                                      cur.execute("SELECT name, standart_score FROM players_score").fetchall()))
+                                       cur.execute("SELECT name, standart_score FROM players_score").fetchall()))
         else:
             self.liders_inf = list(map(lambda x: (x[0], x[1]),
                                        cur.execute("SELECT name, arcada_score FROM players_score").fetchall()))
-
         self.scores = list(map(lambda x: x[1], self.liders_inf))
         self.scores = set(self.scores)
         self.scores = list(self.scores)
@@ -457,13 +434,12 @@ class MyWidget(QMainWindow):
         self.scroll_btn.clicked.connect(self.scroll_table)
         self.fill_table_liders(standart)
 
-    def fill_table_liders(self,standart):
+    def fill_table_liders(self, standart):
         self.count_row = len(self.liders_inf)
         if standart:
             self.tableLiders_sm.setRowCount(self.count_row)
         else:
             self.tableLiders_am.setRowCount(self.count_row)
-
         for id in range(self.count_row):
             self.add_toTableLiders(id, self.scores_liders[id], standart)
         if self.log_in:
@@ -475,12 +451,10 @@ class MyWidget(QMainWindow):
     def add_toTableLiders(self, id, inf, standart):
         item_name = QTableWidgetItem(inf[0])
         item_score = QTableWidgetItem(str(inf[1]))
-
         item_name.setFlags(QtCore.Qt.ItemIsEnabled)
         item_score.setFlags(QtCore.Qt.ItemIsEnabled)
         item_name.setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         item_score.setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-
         if standart:
             self.tableLiders_sm.setItem(id, 0, item_name)
             self.tableLiders_sm.setItem(id, 1, item_score)
@@ -511,11 +485,10 @@ class MyWidget(QMainWindow):
             self.scroll_label.setText(f'Вы - #{self.player_id_in_table_sm + 1}')
 
     def show_u_score_in_table(self, id, table):
-        table.item(id, 0).setBackground(QtGui.QColor(190,190, 255))
+        table.item(id, 0).setBackground(QtGui.QColor(190, 190, 255))
         table.item(id, 1).setBackground(QtGui.QColor(190, 190, 255))
         self.scroll_label.show()
         self.scroll_label.setText(f'Вы - #{self.player_id_in_table_sm + 1}')
-
 
     def del_u_from_table(self, id, table):
         table.item(id, 0).setBackground(QtGui.QColor(255, 255, 255))
@@ -534,6 +507,7 @@ class MyWidget(QMainWindow):
             self.tableLiders_sm.scrollToItem(self.tableLiders_sm.item(player_id_in_table, 0))
         else:
             self.tableLiders_am.scrollToItem(self.tableLiders_am.item(player_id_in_table, 0))
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
