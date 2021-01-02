@@ -4,6 +4,7 @@ from PyQt5 import uic, QtCore, QtGui
 from PyQt5.QtWidgets import *
 
 
+# окно входа
 class Entrence_class(QWidget):
     def __init__(self):
         super().__init__()
@@ -51,6 +52,7 @@ class Entrence_class(QWidget):
         return self.player_name
 
 
+# окно регистрации
 class Registration_class(QWidget):
     def __init__(self):
         super().__init__()
@@ -114,6 +116,7 @@ class Registration_class(QWidget):
         return self.reg_name, self.reg_password
 
 
+# окно результата
 class Rezult_w(QWidget):
     def __init__(self):
         super().__init__()
@@ -132,7 +135,7 @@ class MyWidget(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('проект.ui', self)
-        self.setWindowTitle("Trainer")
+        self.setWindowTitle("AimTrainer")
 
         global cur, con
         self.cur = cur
@@ -141,13 +144,15 @@ class MyWidget(QMainWindow):
         self.stop_btn.hide()
         self.select_sm_table.hide()
         self.select_am_table.hide()
-        self.standart_mode = True
-        self.standart_mode_table = True
-        self.log_in = False
+
+        self.standart_mode = True  # переменная, хранящая инф-ию о текущем режиме игры
+        self.standart_mode_table = True  # переменная, хранящая инф-ию о текущей таблице лидеров
+        self.log_in = False  # переменная о входе в игру
         self.game_now = False
         self.player_name = None
         self.player_id = None
         self.score_player = None
+
         self.entrence.clicked.connect(self.enter_in_acc)
         self.registration.clicked.connect(self.regist_new_acc)
         self.create_table_liders()
@@ -168,6 +173,7 @@ class MyWidget(QMainWindow):
     def open_window(self):
         self.window.show()
 
+    # функция успешного входа
     def log_in_true(self):
         self.log_in = True
         self.window.hide()
@@ -187,6 +193,7 @@ class MyWidget(QMainWindow):
         self.load_liders_inf(False)
         self.exit_btn.clicked.connect(self.exit)
 
+    # функция успешного завершения работы в окне входа
     def enter_in_true(self):
         self.player_name = self.window.return_name()
         self.log_in_true()
@@ -218,6 +225,7 @@ class MyWidget(QMainWindow):
         self.select_mode.addItem('Аркада')
         self.select_mode.activated.connect(self.on_activated)
 
+    # функция активации режимов
     def on_activated(self, text):
         if text == 0:
             self.standart_mode = True
@@ -277,6 +285,7 @@ class MyWidget(QMainWindow):
         self.start_btn.hide()
         self.stop_btn.clicked.connect(self.delete_game)
 
+    #размещение кнопок для стандартной игры
     def coords_buttons_sm(self):
         coords = []
         for i in range(self.num_btns):
@@ -289,6 +298,7 @@ class MyWidget(QMainWindow):
             self.buttons.button(i).move(x, y)
         self.buttons.buttonClicked.connect(self.function_btn_sm)
 
+    # размещение кнопок для аркадной игры
     def coord_button_am(self):
         x = random.randrange(0, 430)
         y = random.randrange(30, 540)
@@ -307,6 +317,7 @@ class MyWidget(QMainWindow):
             if int(self.time.toString('ss')) > 2:
                 self.game_over()
 
+    #определение функции кнопок в стандартном режиме
     def function_btn_sm(self, this_button):
         if self.game_now:
             self.dif_time_2 = int(self.time.toString('ss'))
@@ -323,6 +334,7 @@ class MyWidget(QMainWindow):
                 this_button.hide()
                 self.finish_game()
 
+    # определение функции кнопок в аркадном режиме
     def function_btn_am(self):
         self.timer.stop()
         self.timeForPlayer.setText('00:00:00')
@@ -406,6 +418,7 @@ class MyWidget(QMainWindow):
         self.select_am_table.clicked.connect(self.change_table_am)
         self.select_sm_table.clicked.connect(self.change_table_sm)
 
+    #загрузка таблицы лидеров, переменная standart отвечает какого режима таблица загружается
     def load_liders_inf(self, standart):
         self.scroll_btn.hide()
         if standart:
@@ -495,6 +508,7 @@ class MyWidget(QMainWindow):
         table.item(id, 1).setBackground(QtGui.QColor(255, 255, 255))
         self.scroll_label.hide()
 
+    #перемещение к расположению в таблице лидеров
     def scroll_table(self):
         if self.standart_mode_table:
             player_id_in_table = self.player_id_in_table_sm
