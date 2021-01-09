@@ -301,7 +301,7 @@ class MyWidget(QMainWindow):
     # размещение кнопок для аркадной игры
     def coord_button_am(self):
         x = random.randrange(0, 430)
-        y = random.randrange(30, 540)
+        y = random.randrange(30, 535)
         self.button_game.move(x, y)
 
     def make_timer(self):
@@ -403,11 +403,11 @@ class MyWidget(QMainWindow):
 
     def create_table_liders(self):
         self.tableLiders_sm.setColumnCount(2)
-        self.tableLiders_sm.setColumnWidth(0, 115)
-        self.tableLiders_sm.setColumnWidth(1, 115)
+        self.tableLiders_sm.setColumnWidth(0, 126)
+        self.tableLiders_sm.setColumnWidth(1, 127)
         self.tableLiders_am.setColumnCount(2)
-        self.tableLiders_am.setColumnWidth(0, 115)
-        self.tableLiders_am.setColumnWidth(1, 115)
+        self.tableLiders_am.setColumnWidth(0, 126)
+        self.tableLiders_am.setColumnWidth(1, 127)
         self.tableLiders_sm.setHorizontalHeaderLabels(["Имя", "Счет"])
         self.tableLiders_am.setHorizontalHeaderLabels(["Имя", "Счет"])
         self.load_liders_inf(True)

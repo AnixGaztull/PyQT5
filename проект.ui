@@ -170,7 +170,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>460</x>
       <y>220</y>
       <width>109</width>
       <height>16</height>
@@ -196,7 +196,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>#имя</string>
+     <string/>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -313,7 +313,7 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>50</y>
+      <y>45</y>
       <width>261</width>
       <height>21</height>
      </rect>
@@ -326,7 +326,7 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>60</y>
+      <y>55</y>
       <width>261</width>
       <height>21</height>
      </rect>
@@ -340,8 +340,8 @@
      <rect>
       <x>460</x>
       <y>270</y>
-      <width>271</width>
-      <height>301</height>
+      <width>270</width>
+      <height>290</height>
      </rect>
     </property>
     <property name="statusTip">
@@ -353,8 +353,8 @@
      <rect>
       <x>460</x>
       <y>270</y>
-      <width>271</width>
-      <height>291</height>
+      <width>270</width>
+      <height>290</height>
      </rect>
     </property>
     <property name="statusTip">
